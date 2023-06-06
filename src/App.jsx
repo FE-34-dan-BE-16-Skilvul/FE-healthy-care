@@ -1,8 +1,11 @@
+import React from "react";
+import MainPage from "./pages/MainPage";
+
 function App() {
   return (
     <div>
       <div>
-        <h1>Hello</h1>
+        <MainPage />
       </div>
     </div>
   );
