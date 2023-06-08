@@ -1,9 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap";
-import HeroImage from "../assets/img/main-pic.png";
 import { useNavigate } from "react-router-dom";
 import { dataSwiper, semuaLayanan } from "../data/index";
-import FaqComponent from "../components/FaqComponent";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import HeroImage from "../assets/img/main-pic.png";
+
+// Component
+import MainNavbar from "../components/MainNavbar";
+import FaqComponent from "../components/FaqComponent";
+import Footer from "../components/Footer";
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,6 +21,9 @@ const HomePage = () => {
   const navigate = useNavigate();
   return (
     <div className="homepage">
+      <MainNavbar />
+
+      {/* Hero Section  */}
       <header className="w-100 min-vh-100 d-flex align-items-center overflow-hidden">
         <Container>
           <Row className="header-box d-flex align-items-center pt-lg-5">
@@ -46,6 +54,8 @@ const HomePage = () => {
           </Row>
         </Container>
       </header>
+
+      {/* Layanan Section  */}
       <div className="kelas w-100 min-vh-100">
         <Container>
           <Row>
@@ -83,6 +93,8 @@ const HomePage = () => {
           </Row>
         </Container>
       </div>
+
+      {/* Testimoni Section  */}
       <div className="testimonial py-5">
         <Container>
           <Row>
@@ -139,6 +151,7 @@ const HomePage = () => {
 
       {/* Section FaQ  */}
       <FaqComponent />
+      <Footer />
     </div>
   );
 };
