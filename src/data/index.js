@@ -8,17 +8,17 @@ import People3 from "../assets/img/testimonial/people-3.jpg";
 
 export const navLinks = [{
         id: 1,
-        path: "",
+        path: "/home",
         text: "Home",
     },
     {
         id: 2,
-        path: "layanan",
+        path: "/layanan",
         text: "Layanan",
     },
     {
         id: 3,
-        path: "artikel",
+        path: "/artikel",
         text: "Artikel",
     },
 ];
@@ -50,30 +50,36 @@ export const dataSwiper = [{
         id: 1,
         desc: "Aplikasi rekomendasi diet gizi seimbang sangat membantu saya dalam mencapai tujuan kesehatan saya. Dengan fitur-fitur yang informatif dan mudah digunakan, saya dapat memilih makanan yang sehat dan memenuhi kebutuhan gizi harian saya.",
         image: People1,
-        name: "People 1",
+        name: "Nurul Mariana",
         skill: "Masyarakat Umum",
     },
     {
         id: 2,
         desc: "Saya telah menggunakan berbagai aplikasi diet sebelumnya, tetapi aplikasi rekomendasi diet gizi seimbang adalah yang terbaik. Dengan saran yang disesuaikan dengan preferensi dan kondisi kesehatan saya, saya merasa lebih energik dan mencapai berat badan yang sehat.",
         image: People2,
-        name: "People 2",
+        name: "Alex Bhizer",
         skill: "Karyawan Swasta",
     },
     {
         id: 3,
         desc: "Aplikasi rekomendasi diet gizi seimbang benar-benar mengubah pola makan saya. Saya sekarang lebih sadar akan nutrisi yang masuk ke tubuh saya dan mampu menjaga keseimbangan makanan sehari-hari. Hasilnya, saya merasa lebih sehat dan bersemangat.",
         image: People3,
-        name: "People 3",
+        name: "Gunawan   Cahya",
         skill: "Atlet",
-    },
+    }, {
+        id: 4,
+        desc: "Aplikasi ini memiliki fitur pelacakan kemajuan yang sangat berguna. Saya dapat memantau asupan kalori, nutrisi, dan berat badan saya secara teratur. Dengan demikian, saya dapat melihat perubahan positif dalam penurunan berat badan dan gaya hidup saya secara keseluruhan.",
+        image: People1,
+        name: "Titin Suritin",
+        skill: "Ibu Rumah Tangga",
+    }
 ];
 
 export const faq = [{
         id: 1,
         eventKey: 0,
         title: "Apakah ini Berlangganan?",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
+        desc: "Tidak perlu, anda hanya perlu membuat akun untuk menikmati semua fitur di website kami",
     },
     {
         id: 2,
