@@ -15,9 +15,9 @@ function App() {
     <BrowserRouter>
     <Header />
     <Routes>
-      <Route path="/" exact element={<Buah />}/>
-      <Route path="/detail" element={<Fitur />}/>
-      <Route path="/hasil" element={<Hasil />}/>
+      <Route path="/" exact Component={Buah}/>
+      <Route path="/detail" Component={Fitur}/>
+      <Route path="/hasil" Component={Hasil }/>
     </Routes>
     <Footer />
     </BrowserRouter>
