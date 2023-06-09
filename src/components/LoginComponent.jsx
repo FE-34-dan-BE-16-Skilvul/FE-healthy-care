@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { BiMailSend, BiKey, BiRightArrowAlt } from "react-icons/bi";
 import axios from "axios";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "../css/login.css";
 import logo from "../../public/fav-icon.png";
 import img from "../assets/img/reg-cover.jpg";
@@ -21,7 +24,6 @@ const LoginComponent = () => {
   };
 
   const handleApi = () => {
-    // console.log({ email, password });
     axios
       .post("https://api-healthycare-dev.up.railway.app/users/login", {
         email: email,
@@ -29,13 +31,12 @@ const LoginComponent = () => {
       })
       .then((result) => {
         console.log(result.data);
-        alert("Login success");
+        toast.success(result.data.message);
         localStorage.setItem("token", result.data.token);
         navigate("/home");
       })
       .catch((error) => {
-        alert("Service error");
-        alert("Email atau Password anda salah!");
+        toast.error(error.response.data.message);
         console.log(error.data);
       });
   };
