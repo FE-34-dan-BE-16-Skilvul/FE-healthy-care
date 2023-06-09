@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiMailSend, BiKey, BiRightArrowAlt } from "react-icons/bi";
+import axios from "axios";
 
 import "../css/login.css";
 import logo from "../../public/fav-icon.png";
 import img from "../assets/img/reg-cover.jpg";
-import axios from "axios";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const LoginComponent = () => {
   };
 
   const handleApi = () => {
-    console.log({ email, password });
+    // console.log({ email, password });
     axios
       .post("https://api-healthycare-dev.up.railway.app/users/login", {
         email: email,
@@ -29,12 +29,13 @@ const LoginComponent = () => {
       })
       .then((result) => {
         console.log(result.data);
-        alert("success");
+        alert("Login success");
         localStorage.setItem("token", result.data.token);
         navigate("/home");
       })
       .catch((error) => {
-        alert("service error");
+        alert("Service error");
+        alert("Email atau Password anda salah!");
         console.log(error.data);
       });
   };
