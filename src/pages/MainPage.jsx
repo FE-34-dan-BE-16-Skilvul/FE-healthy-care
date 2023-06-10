@@ -82,11 +82,6 @@ const HomePage = () => {
                     className="w-100 mb-5 rounded-4"
                   />
                   <h5 className="mb-5 px-3">{layanan.title}</h5>
-                  <div className="ket d-flex justify-content-between align-items-center px-3 pb-3">
-                    {/* <button className="btn btn-success rounded-1">
-                      {layanan.try}
-                    </button> */}
-                  </div>
                 </Col>
               );
             })}

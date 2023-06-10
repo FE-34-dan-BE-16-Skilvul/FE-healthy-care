@@ -5,6 +5,8 @@ import { ToastContainer } from "react-toastify";
 import MainPage from "./pages/MainPage";
 import HomePage from "./pages/HomePage";
 import LayananPage from "./pages/LayananPage";
+// import ArtikelPage from "./pages/ArtikelPage";
+import FaqPages from "./pages/FaqPages";
 
 import RegistComponent from "./components/RegistComponent";
 import LoginComponent from "./components/LoginComponent";
@@ -16,7 +18,8 @@ function App() {
         <Route path="/" Component={MainPage} />
         <Route path="/home" Component={HomePage} />
         <Route path="/layanan" Component={LayananPage} />
-        {/*<Route path="/artikel" Component={<ArtikelPage />} /> */}
+        {/* <Route path="/artikel" Component={ArtikelPage} /> */}
+        <Route path="/faq" Component={FaqPages} />
         <Route path="/login" Component={LoginComponent} />
         <Route path="/register" Component={RegistComponent} />
       </Routes>

@@ -32,7 +32,14 @@ const LoginComponent = () => {
       .then((result) => {
         console.log(result.data);
         toast.success(result.data.message);
-        localStorage.setItem("token", result.data.token);
+
+        const data = {
+          token: result.data.token,
+        };
+
+        const jsonData = JSON.stringify(data);
+
+        localStorage.setItem("token", jsonData);
         navigate("/home");
       })
       .catch((error) => {

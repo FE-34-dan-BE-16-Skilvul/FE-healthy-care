@@ -21,12 +21,23 @@ export const navLinks = [{
         path: "/artikel",
         text: "Artikel",
     },
+    {
+        id: 4,
+        path: "/faq",
+        text: "FAQ",
+    },
+    {
+        id: 5,
+        path: "/about",
+        text: "About Us",
+    }
 ];
 
 export const semuaLayanan = [{
         id: 1,
         image: LayananImage1,
         title: "Perhitungan Index Massa Tubuh",
+        path: "/layanan/bmi",
         try: "Coba Sekarang",
         delay: "1300",
     },
@@ -34,6 +45,7 @@ export const semuaLayanan = [{
         id: 2,
         image: LayananImage2,
         title: "Rekomendasi Diet Gizi Seimbang",
+        path: "/layanan/diet",
         try: "Coba Sekarang",
         delay: "1600",
     },
@@ -41,6 +53,7 @@ export const semuaLayanan = [{
         id: 3,
         image: LayananImage3,
         title: "Perhitungan Kebutuhan Kalori Harian",
+        path: "/layanan/kalori",
         try: "Coba Sekarang",
         delay: "1900",
     },

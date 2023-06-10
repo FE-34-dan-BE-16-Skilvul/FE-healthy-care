@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+
+// import required modules
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 
 import HomeNavbar from "../components/HomeNavbar";
 import Footer from "../components/Footer";
 
 import HeroImage from "../assets/img/main-pic.png";
+import { dataSwiper } from "../data/index";
 
 // Import styles
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import required modules
-import { Pagination } from "swiper";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <HomeNavbar />
+      {/* Hero Section  */}
       <header className="w-100 min-vh-100 d-flex align-items-center overflow-hidden">
         <Container>
           <Row className="header-box d-flex align-items-center pt-lg-5">
@@ -34,8 +37,8 @@ const HomePage = () => {
                 Welcome <span>name,</span> <br /> di Healthy Care
               </h1>
               <p className="mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                Control diet-mu sekarang dengan Healthy Care. Solusi Cerdas Diet
-                Gizi seimbang!
+                Control diet dan gizi seimbangmu sekarang dengan Healthy Care.
+                Solusi Cerdas Diet Gizi seimbang!
               </p>
             </Col>
             <Col lg="6" className="pt-lg-0 pt-5">
@@ -48,6 +51,61 @@ const HomePage = () => {
           </Row>
         </Container>
       </header>
+
+      {/* Testimoni Section  */}
+      <div className="testimonial py-5">
+        <Container>
+          <Row>
+            <Col>
+              <h1 className="text-center fw-bold my-5">Testimonial</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 40,
+                },
+                992: {
+                  slidesPerView: 2,
+                  spaceBetween: 50,
+                },
+                1200: {
+                  slidesPerView: 3,
+                  spaceBetween: 50,
+                },
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              {dataSwiper.map((data) => {
+                return (
+                  <SwiperSlide key={data.id} className="shadow-sm">
+                    <p className="desc">{data.desc}</p>
+                    <div className="people">
+                      <img src={data.image} alt="" />
+                      <div>
+                        <h5 className="mb-1">{data.name}</h5>
+                        <p className="m-0 fw-bold">{data.skill}</p>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </Row>
+        </Container>
+      </div>
       <Footer />
     </div>
   );
