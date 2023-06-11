@@ -410,18 +410,6 @@ header {
     border-radius: 100%;
 }
 
-/* Syarat & Ketentuan Style  */
-.syarat-ketentuan-page .syarat-ketentuan {
-    padding-top: 150px;
-}
-
-.syarat-ketentuan-page .syarat-ketentuan p {
-    line-height: 2;
-}
-
-/* Syarat & Ketentuan Style  */
-
-
 /* Media Query  */
 @media screen and (max-width: 992px) {
     .kelas-page .header-box {

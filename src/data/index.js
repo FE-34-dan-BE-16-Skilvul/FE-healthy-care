@@ -6,6 +6,12 @@ import People1 from "../assets/img/testimonial/people-1.jpg";
 import People2 from "../assets/img/testimonial/people-2.jpg";
 import People3 from "../assets/img/testimonial/people-3.jpg";
 
+import Laila from "../assets/img/Laila.jpeg"
+import Arisandi from "../assets/img/Arisandi.jpeg"
+import Vian from "../assets/img/Vian.jpeg"
+import Dhika from "../assets/img/Dhika.jpeg"
+import Rahmadi from "../assets/img/Rahmadi.jpeg"
+
 export const navLinks = [{
         id: 1,
         path: "/home",
@@ -123,5 +129,47 @@ export const faq = [{
         eventKey: 5,
         title: "Apakah harus mendaftar?",
         desc: "Untuk menggunakan fitur utama kami anda harus memiliki akun terlebih dahulu",
+    },
+];
+
+export const teamMembers = [{
+        id: 1,
+        image: Vian,
+        name: "Alvian Nugroho",
+        position: "Back-End Developer",
+        qoute: "\"Hidup adalah tentang menemukan arti dalam setiap napas yang kita hirup.\"",
+        delay: "1300",
+    },
+    {
+        id: 2,
+        image: Arisandi,
+        name: "Arisandi Satria",
+        position: "Back-End Developer",
+        qoute: "\"Kebahagiaan bukanlah tujuan, tetapi perjalanan.\"",
+        delay: "1600",
+    },
+    {
+        id: 3,
+        image: Dhika,
+        name: "Mahardhika Alif Surya",
+        position: "Front-End Developer",
+        qoute: "\"Hidup hanya sekali, tetapi jika kita melakukannya dengan benar, satu kali cukup.\"",
+        delay: "1900",
+    },
+    {
+        id: 4,
+        image: Laila,
+        name: "Laila Nur Fardah",
+        position: "Front-End Developer",
+        qoute: "\"Kegagalan adalah kesempatan untuk memulai lagi, tetapi dengan pengetahuan yang lebih baik.\"",
+        delay: "2200",
+    },
+    {
+        id: 5,
+        image: Rahmadi,
+        name: "Rahmadi Fadillah",
+        position: "Front-End Developer",
+        qoute: "\"Kesederhanaan adalah keindahan yang tak terbatas.\"",
+        delay: "2500",
     },
 ];
