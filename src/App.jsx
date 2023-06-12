@@ -1,26 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from './components/header';
 import Footer from './components/Footer';
-import Buah from './components/makanan';
-import Fitur from './components/card';
-import Hasil from './components/hasil';
-
+import Home from './pages/Home';
+import Cart from './components/Cart';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
-    <Header />
-    <Routes>
-      <Route path="/" exact Component={Buah}/>
-      <Route path="/detail" Component={Fitur}/>
-      <Route path="/hasil" Component={Hasil }/>
-    </Routes>
-    <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <Header />
+      <Home />
+      <Cart />
+      <Footer />
+    </Provider> 
     </>
   )
 }
