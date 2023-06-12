@@ -98,7 +98,7 @@ const Cart = () => {
                                                         className="cart_items_delete"
                                                         onClick={() => handleRemove(id)}
                                                     >
-                                                        <span>&times;</span>
+                                                        <span>Hapus</span>
                                                     </div>
                                                 </div>
                                             );
