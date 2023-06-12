@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import HomeNavbar from "../components/HomeNavbar";
 import Footer from "../components/Footer";
 
 import { teamMembers } from "../data/index";
+import { useNavigate } from "react-router-dom";
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+
+  //Auth Login
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <div className="kelas-page">
       <HomeNavbar />

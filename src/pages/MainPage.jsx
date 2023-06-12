@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { dataSwiper, semuaLayanan } from "../data/index";
@@ -17,8 +18,17 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 
-const HomePage = () => {
+const MainPage = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    // Jika token ada, redirect ke halaman home
+    if (token) {
+      navigate("/home");
+    }
+  }, [navigate]);
+
   return (
     <div className="homepage">
       <MainNavbar />
@@ -151,4 +161,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default MainPage;
