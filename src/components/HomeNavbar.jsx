@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 import Logo from "../assets/img/logo.png";
 import { navLinks } from "../data/index";
@@ -9,6 +11,25 @@ import React from "react";
 const HeaderNavbar = () => {
   const [changeColor, setChangeColor] = useState(false);
   const navigate = useNavigate();
+
+  const MySwal = withReactContent(Swal);
+
+  const handleLogout = () => {
+    MySwal.fire({
+      title: "Apakah Anda yakin ingin logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Ya, logout",
+      cancelButtonText: "Batal",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("name");
+        navigate("/");
+      }
+    });
+  };
 
   const changeBackgroundColor = () => {
     if (window.scrollY > 10) {
@@ -46,7 +67,6 @@ const HeaderNavbar = () => {
                       className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "active" : ""
                       }
-                      end
                     >
                       {link.text}
                     </NavLink>
@@ -58,10 +78,7 @@ const HeaderNavbar = () => {
             <div className="text-center">
               <button
                 className="btn btn-outline-success rounded-1"
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  navigate("/");
-                }}
+                onClick={handleLogout}
               >
                 Logout
               </button>

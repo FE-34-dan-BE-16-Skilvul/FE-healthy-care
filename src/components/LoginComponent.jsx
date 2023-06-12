@@ -30,16 +30,11 @@ const LoginComponent = () => {
         password: password,
       })
       .then((result) => {
-        console.log(result.data);
+        console.log(result.data.result);
         toast.success(result.data.message);
-
-        const data = {
-          token: result.data.token,
-        };
-
-        const jsonData = JSON.stringify(data);
-
-        localStorage.setItem("token", jsonData);
+        localStorage.setItem("token", result.data.result.token);
+        localStorage.setItem("user_id", result.data.result.id);
+        localStorage.setItem("name", result.data.result.name);
         navigate("/home");
       })
       .catch((error) => {

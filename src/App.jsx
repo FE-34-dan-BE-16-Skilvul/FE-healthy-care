@@ -11,6 +11,7 @@ import AboutPage from "./pages/AboutPage";
 
 import RegistComponent from "./components/RegistComponent";
 import LoginComponent from "./components/LoginComponent";
+import BMIComponent from "./components/BMIComponent";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" Component={MainPage} />
         <Route path="/home" Component={HomePage} />
         <Route path="/layanan" Component={LayananPage} />
+        <Route path="/layanan/bmi" Component={BMIComponent} />
         {/* <Route path="/artikel" Component={ArtikelPage} /> */}
         <Route path="/faq" Component={FaqPages} />
         <Route path="/about" Component={AboutPage} />

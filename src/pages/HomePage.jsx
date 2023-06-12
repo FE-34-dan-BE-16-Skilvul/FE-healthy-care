@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 
 // import required modules
@@ -18,10 +18,20 @@ import "swiper/css/pagination";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
 
+  //Auth Login
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
+    }
+  }, []);
+
+  //Display Name
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setName(storedName);
     }
   }, []);
 
@@ -34,7 +44,7 @@ const HomePage = () => {
           <Row className="header-box d-flex align-items-center pt-lg-5">
             <Col lg="6">
               <h1 className="mb-2 animate__animated animate__fadeInUp animate__delay-1s">
-                Welcome <span>name,</span> <br /> di Healthy Care
+                Welcome <span>{name}</span>, <br /> di Healthy Care
               </h1>
               <p className="mb-4 animate__animated animate__fadeInUp animate__delay-1s">
                 Control diet dan gizi seimbangmu sekarang dengan Healthy Care.
