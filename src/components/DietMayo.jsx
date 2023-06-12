@@ -44,6 +44,7 @@ const DietMayo = () => {
                 </div>
               </div>
             </div>
+            <DietMayoPopUp />
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>
@@ -74,7 +75,7 @@ const DietMayo = () => {
           </div>
         </main>
 
-      <DietMayoPopUp />
+      
              
     </div>
     );

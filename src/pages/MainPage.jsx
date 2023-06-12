@@ -1,8 +1,6 @@
   import { Container, Row, Col } from "react-bootstrap";
   import HeroImage from "../assets/img/main-pic.png";
   import { useNavigate } from "react-router-dom";
-  import { dataSwiper, semuaLayanan } from "../data/index";
-  import { Swiper, SwiperSlide } from "swiper/react";
   import logo from '../assets/logo.png';
   import diet1 from '../assets/diet1.jpg';
   import diet2 from '../assets/diet2.jpeg';

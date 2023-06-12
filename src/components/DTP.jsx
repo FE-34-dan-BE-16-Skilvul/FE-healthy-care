@@ -41,6 +41,7 @@ const DTP = () => {
                 </div>
               </div>
             </div>
+            <DTPPopUp />
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>
@@ -72,7 +73,7 @@ const DTP = () => {
         </main>
 
        
-        <DTPPopUp />
+        
 
         
     </div>

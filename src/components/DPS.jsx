@@ -52,6 +52,7 @@ const DPS = () => {
                 </div>
               </div>
             </div>
+            <DPSPopUp />
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>
@@ -83,7 +84,7 @@ const DPS = () => {
         </main>
 
        
-        <DPSPopUp />
+        
 
         
     </div>
