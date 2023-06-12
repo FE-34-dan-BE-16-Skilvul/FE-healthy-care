@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from '../assets/logo.png';
 import diet1 from '../assets/diet1.jpg';
 import diet2 from '../assets/diet2.jpeg';
@@ -9,13 +9,17 @@ import diet7 from '../assets/diet7.jpeg';
 import diet8 from '../assets/diet8.jpg';
 import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 import { useNavigate } from 'react-router-dom';
-
+import DietMayoPopUp from '../menu/DietMayoPopUp';
 
 
 const DietMayo = () => {
     const navigate = useNavigate();
+    const [modalShow, setModalShow] = useState(false);
+
     return (
       <div className='diet-mayo'>
         <a href="#" className="scrolltop" id="scroll-top">
@@ -43,37 +47,35 @@ const DietMayo = () => {
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>
-            <div className="card" onClick={() => navigate("/dtp")}>
+            <div className="card accessory__content" onClick={() => navigate("/dtp")}>
                 <img src={diet3} alt="nature" />
                 <h3>Diet Tinggi Protein</h3>              
             </div>
 
-            <div className="card" onClick={() => navigate("/dps")}>
+            <div className="card accessory__content" onClick={() => navigate("/dps")}>
                 <img src={diet8} alt="people" />
                 <h3>Diet Protein Shake</h3>
             </div>
 
-            <div className="card" onClick={() => navigate("/zone-diet")}>        
+            <div className="card accessory__content" onClick={() => navigate("/zone-diet")}>        
                 <img src={diet5} alt="tech" />
                 <h3>Zone Diet</h3>
             </div>
 
-            <div className="card" onClick={() => navigate("/diet-mediterania")}>
+            <div className="card accessory__content" onClick={() => navigate("/diet-mediterania")}>
                 <img src={diet6} alt="architecture" />
                 <h3>Diet Mediterania</h3>
             </div>
 
-            <div className="card" onClick={() => navigate("/diet-atkins")}>
+            <div className="card accessory__content" onClick={() => navigate("/diet-atkins")}>
                 <img src={diet7} alt="any" />
                 <h3>Diet Atkins</h3>
             </div>
           </div>
         </main>
 
-       
-
-
-       
+      <DietMayoPopUp />
+             
     </div>
     );
 };

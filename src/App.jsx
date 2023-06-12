@@ -16,7 +16,7 @@ function App() {
     <div>
       <MainNavbar />
       <Routes>
-        <Route path="/main-artikel" Component={MainPage} />
+        <Route path="/artikel" Component={MainPage} />
         {/* <Route path="/layanan" Component={<LayananPage />} />
           <Route path="/artikel" Component={<ArtikelPage />} /> */}
         <Route path="/diet-mayo" Component={DietMayo} />

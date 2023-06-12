@@ -1,42 +1,45 @@
-import React from 'react'
-import { useState} from 'react';
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
+function DietMayoPopUp() {
+  const [show, setShow] = useState(false);
 
-const DietPopup = () => {
-    const [isPopupOpen, setPopupOpen] = useState(false);
-  
-    const openPopup = () => {
-      setPopupOpen(true);
-    };
-  
-    const closePopup = () => {
-      setPopupOpen(false);
-    };
-  
-    return (
-      <>
-        <button className="pop" onClick={openPopup}>Buka Popup</button>
-        {isPopupOpen &&(
-        <div className="popup" id="popup">
-          <div className="putih">
+  return (
+    <>
+      <button  className='pop'  variant="primary" onClick={() => setShow(true)}>
+        Menu Diet
+      </button>
+
+      <Modal
+        show={show} 
+        onHide={() => setShow(false)}
+        dialogClassName="modal-90w" 
+        aria-labelledby="example-custom-modal-styling-title"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+          Menu Diet Mayo
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
             <div className="row">
-              <button onClick={closePopup}>X</button>
-              <h1>Menu Diet Mayo</h1>
+              
               <div className="col-sm-4">
                 <p>Hari Pertama</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 cangkir kopi tubruk/tea + 1 sdk gula pasir</li>
                   <li>Siang: 2 telur rebus matang + 1 ikat bayam + tomat</li>
                   <li>Malam: 1,5 ons bistik panggang/rebus + selada yang ditaburi jeruk citrun</li>
                 </ul>
                 <p>Hari Kedua</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 cangkir kopi tubruk/tea + 1 sdk gula pasir</li>
                   <li>Siang: 1,5 ons bistik panggang/rebus + selada + 1 buah segar (pear)</li>
                   <li>Malam: 2,5 ons ayam kukus + 1 buah pisang</li>
                 </ul>
                 <p>Hari Ketiga</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 cangkir kopi tubruk/tea + 1 sdk gula pasir</li>
                   <li>Siang: 2 telur rebus matang + 1 ikat bayam + tomat + pear</li>
                   <li>Malam: 2,5 ons ayam kukus + selada yang ditaburi jeruk citrun</li>
@@ -44,13 +47,13 @@ const DietPopup = () => {
               </div>
               <div className="col-sm-4">
                 <p>Hari Keempat</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 cangkir kopi tubruk/tea + 1 sdk gula pasir + 1 iris roti bakar</li>
                   <li>Siang: 1 telur rebus + wortel rebus sebentar + keju trim 20 gr (di gelael)</li>
                   <li>Malam: 1 mangkok penuh pepaya + citrun + 1 gelas susu non fat</li>
                 </ul>
                 <p>Hari Kelima</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 wortel besar mentah diparut kasar ditaburi jeruk citrun</li>
                   <li>Siang: 2,5 ons ayam kukus dengan sedikit saus mentega yg tidak asin</li>
                   <li>Malam: 2,5 ons bistik panggang/rebus + selada + bayam</li>
@@ -58,13 +61,13 @@ const DietPopup = () => {
               </div>
               <div className="col-sm-4">
                 <p>Hari Keenam</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 cangkir kopi tubruk/tea + 1 sdk gula pasir + 1 iris roti bakar</li>
                   <li>Siang: 2,5 ons ayam kukus + selada ditaburi jeruk citrun</li>
                   <li>Malam: 2 telur rebus + wortel besar parut mentah ditaburi citrun</li>
                 </ul>
                 <p>Hari Ketujuh</p>
-                <ul type="circle">
+                <ul className="circle">
                   <li>Pagi: 1 cangkir kopi tubruk/tea tanpa gula</li>
                   <li>Siang: 1,5 ons bistik panggang+ 1 buah segar (pear)</li>
                   <li>Malam: 2 telur rebus + wortel besar parut mentah ditaburi citrun</li>
@@ -72,12 +75,10 @@ const DietPopup = () => {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-        )}
-      </>
-    );
-  };
-  
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}
 
-  export default DietPopup;
+export default DietMayoPopUp;

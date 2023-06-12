@@ -65,27 +65,27 @@ const ZoneDiet = () => {
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>
 
-            <div className="card" onClick={() => navigate("/diet-mayo")}>
+            <div className="card accessory__content" onClick={() => navigate("/diet-mayo")}>
                 <img src={diet2} alt="tech" />
                 <h3>Diet Mayo</h3>
             </div>
 
-            <div className="card" onClick={() => navigate("/dtp")}>
+            <div className="card accessory__content" onClick={() => navigate("/dtp")}>
                 <img src={diet3} alt="nature" />
                 <h3>Diet Tinggi Protein</h3>              
             </div>
 
-            <div className="card" onClick={() => navigate("/dps")}>
+            <div className="card accessory__content" onClick={() => navigate("/dps")}>
                 <img src={diet8} alt="people" />
                 <h3>Diet Protein Shake</h3>
             </div>
 
-            <div className="card" onClick={() => navigate("/diet-mediterania")}>
+            <div className="card accessory__content" onClick={() => navigate("/diet-mediterania")}>
                 <img src={diet6} alt="architecture" />
                 <h3>Diet Mediterania</h3>
             </div>
 
-            <div className="card" onClick={() => navigate("/diet-atkins")}>
+            <div className="card accessory__content" onClick={() => navigate("/diet-atkins")}>
                 <img src={diet7} alt="any" />
                 <h3>Diet Atkins</h3>
             </div>

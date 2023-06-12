@@ -394,7 +394,7 @@ img {
 }
 
 .accessory__button {
-    position: absolute;
+    position: absolute  ;
     bottom: 0;
     right: 0;
     display: flex;
@@ -652,4 +652,110 @@ img {
 
 .col img{
     height: 100px;
+}
+
+.popup {
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+  
+  .putih{
+    background-color: none;
+    border-radius: 30px;
+    font-size: 15px;
+    padding: 10px;
+    width: 100px;
+  }
+
+  .popup p {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    margin-top: 20%;
+  }
+  
+  .popup button {
+    border: none;
+    background-color: white;
+    font-size: 20px;
+    padding: 5px;
+    margin: 10px;
+    margin-left: 20px;
+    width: 20px;
+  }
+
+  .putih .row{
+    padding: 0;
+  }
+
+  .pop{
+    background-color: #88E169;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-left: 150px;
+    padding: 10px;
+    width: 100px;
+  }
+
+  .my-modal-dialog {
+    max-width: none ;
+    margin: 0 ;
+  }
+  
+  .my-modal-content {
+    padding: 0;
+  }
+  
+  
+  .circle {
+  list-style-type: circle;
+}
+
+.heart-clicked {
+    color: red;
+  }
+  
+
+  .navbar {
+    position: fixed;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    z-index: 999;
+    animation-name: fadeInDown;
+    animation-duration: 1s;
+}
+
+.navbar.color-active {
+    background-color: var(--navbar-color);
+    padding: 20px 0 20px 0;
+    border-bottom: 2px solid #389E0D;
+}
+
+.navbar .nav-link a {
+    padding: 5px 10px 5px 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--navbar-color-text);
+}
+
+.navbar .nav-link a:hover {
+    color: var(--secondary-color);
+}
+
+.navbar .nav-link .active {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+.navbar .nav-link .active:hover {
+    color: var(--navbar-color);
 }
