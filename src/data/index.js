@@ -15,7 +15,7 @@ import Rahmadi from "../assets/img/Rahmadi.jpeg"
 export const navLinks = [{
         id: 1,
         path: "/home",
-        text: "Home",
+        text: "Beranda",
     },
     {
         id: 2,
@@ -35,7 +35,7 @@ export const navLinks = [{
     {
         id: 5,
         path: "/about",
-        text: "About Us",
+        text: "Tentang Kami",
     }
 ];
 
