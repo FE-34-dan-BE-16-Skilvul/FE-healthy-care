@@ -11,6 +11,7 @@ import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
 
 import { useNavigate } from 'react-router-dom';
+import ZoneDietPopUp from '../menu/ZoneDietPopUp';
 
 
 
@@ -58,9 +59,12 @@ const ZoneDiet = () => {
                     </li>
                     <li>Blok lemak hanya 1,5 gram.</li>
                 </ul>
+                <span>Arisandi Darmaji</span>
                 </div>
               </div>
             </div>
+            <ZoneDietPopUp />
+
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>

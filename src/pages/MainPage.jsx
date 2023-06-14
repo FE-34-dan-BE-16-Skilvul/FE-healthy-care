@@ -63,6 +63,7 @@
       
         setHeartClicked([likedCard, ...filteredHeartClicked]);
       };
+      
 
     return (
       <div className="homepage">

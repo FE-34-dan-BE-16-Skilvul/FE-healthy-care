@@ -49,6 +49,7 @@ const DPS = () => {
                             <p>cara mengonsumsi protein shake yang paling mudah adalah dengan mencampurnya dengan air lalu diminum. Namun ada cara lainnya yang bisa Anda lakukan, misal mencampurkan dengan cairan beraroma seperti susu atau air kelapa dan mencampurnya untuk smoothie buah.
             
                             Biasanya, produsen protein shake menyarankan penyajian sekitar 30 gram satu porsi. Waktu yang tepat untuk meminumnya ialah setelah berolahraga, yaitu ketika otot sangat membutuhkannya.</p>
+                            <span>Penulis : Rahmadi Fadhilla</span>
                 </div>
               </div>
             </div>

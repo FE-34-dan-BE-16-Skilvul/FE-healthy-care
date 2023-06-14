@@ -11,6 +11,7 @@ import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
 
 import { useNavigate } from 'react-router-dom';
+import DietMediteraniaPopUp from '../menu/DietMediteraniaPopUp';
 
 
 
@@ -57,9 +58,12 @@ const DietMediterania = () => {
             
                             <h3>3. Mengurangi Konsumsi Lemak Tidak Sehat</h3>
                             <p>Hal yang tak kalah penting untuk diperhatikan dalam menjalani diet mediterania adalah mengurangi asupan lemak tidak sehat, seperti lemak trans dan lemak jenuh yang terdapat dalam minyak goreng atau margarin. Sebagai alternatif, Anda bisa memasak menggunakan minyak zaitun.</p>
+                            <span>Penulis : Mahardhika Alif Surya</span>
                 </div>
               </div>
             </div>
+
+            <DietMediteraniaPopUp />
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>

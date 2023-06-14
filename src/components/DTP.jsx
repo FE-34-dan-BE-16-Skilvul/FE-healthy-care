@@ -37,7 +37,8 @@ const DTP = () => {
                 <h2>Manfaat Diet Tinggi Protein</h2>
                 <p>Tahukah kamu bahwa otak, tepatnya area yang disebut hipotalamus, berperan besar dalam mengatur berat badan kamu. Organ vital tersebut memproses berbagai jenis informasi untuk menentukan kapan kamu harus makan dan seberapa banyak jumlah makanan yang perlu kamu makan untuk merasa kenyang. Beberapa sinyal penting yang dikirim ke otak adalah perubahan hormon sebagai respons untuk mengonsumsi makanan.
 
-                Nah, meningkatkan asupan protein dapat meningkatkan kadar hormon kenyang (pengurang napsu makan) GLP-1, peptidpeptiden kadar kolesistokinin, sekaligus mengurangi kadar hormon lapar, yaitu ghrelin. Berkurangnya rasa lapar membuat kamu makan lebih sedikit kalori secara otomatis. Hal ini yang membuat diet tinggi protein dapat mengurangi berat badan.</p>    
+                Nah, meningkatkan asupan protein dapat meningkatkan kadar hormon kenyang (pengurang napsu makan) GLP-1, peptidpeptiden kadar kolesistokinin, sekaligus mengurangi kadar hormon lapar, yaitu ghrelin. Berkurangnya rasa lapar membuat kamu makan lebih sedikit kalori secara otomatis. Hal ini yang membuat diet tinggi protein dapat mengurangi berat badan.</p>   
+                <span>Penulis : Laila Nur Fardah </span> 
                 </div>
               </div>
             </div>

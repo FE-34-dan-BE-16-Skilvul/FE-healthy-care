@@ -32,7 +32,7 @@ const MainNavbar = () => {
         className={changeColor ? "color-active" : ""}
       >
         <Container>
-          <Navbar.Brand href="/home" className="fs-3 fw-bold">
+          <Navbar.Brand href="/hartikel" className="fs-3 fw-bold">
             <img src={Logo} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />

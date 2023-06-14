@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "animate.css";
 
 import AOS from "aos";
@@ -21,4 +22,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-  

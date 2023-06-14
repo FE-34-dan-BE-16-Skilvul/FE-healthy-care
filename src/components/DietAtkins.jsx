@@ -11,6 +11,7 @@ import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
 
 import { useNavigate } from 'react-router-dom';
+import DietAtkinsPopUp from '../menu/DietAtkinsPopUp';
 
 
 
@@ -70,9 +71,13 @@ const DietAtkins = () => {
 
                 <h3>4. Fase 4 (Pemeliharaan)</h3>
                 <p>Pada fase keempat, Anda dapat makan makanan berkarbohidrat sehat sebanyak yang dapat ditoleransi oleh tubuh Anda tanpa menambah berat badan.</p>
+                <span>Penulis : Herlambang Nasution</span>
                 </div>
               </div>
             </div>
+
+            <DietAtkinsPopUp />
+
           </section>
 
           <div className="col col-sm-3 buku" style={{margin:'100px 0px 0px 0px'}}>

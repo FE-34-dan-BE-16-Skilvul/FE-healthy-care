@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from '../assets/logo.png';
 import diet1 from '../assets/diet1.jpg';
 import diet2 from '../assets/diet2.jpeg';
@@ -11,6 +11,7 @@ import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
 import DietMayoPopUp from '../menu/DietMayoPopUp';
@@ -19,6 +20,19 @@ import DietMayoPopUp from '../menu/DietMayoPopUp';
 const DietMayo = () => {
     const navigate = useNavigate();
     const [modalShow, setModalShow] = useState(false);
+    const [articles, setArticles] = useState([]);
+    const articleId = 1;
+
+    useEffect(() => {
+      axios.get(`https://api-healthycare-dev.up.railway.app/articles/${articleId}`)
+      .then(response => {
+        setArticles([response.data.data]);
+        console.log(response.data.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
     return (
       <div className='diet-mayo'>
@@ -33,14 +47,13 @@ const DietMayo = () => {
                 <div className="home__img">
                   <img src={diet2} alt="" className="mx-auto d-block" />
                 </div>
-                <div className="kiri">
-                  <p>Diet mayo adalah metode diet yang dirancang oleh Mayo Clinic, sebuah organisasi medis non-profit asal Amerika Serikat. Tak hanya untuk menurunkan berat badan, diet ini juga mendukung perubahan gaya hidup menjadi lebih sehat secara bertahap dan berkelanjutan.</p>
-                  <p>Salah satu fokus utama dari diet ini adalah berfokus pada perubahan perilaku. Seperti tidak makan sambil menonton televisi atau meningkatkan asupan buah dan sayuran yang kamu makan dalam sehari, untuk membantu menurunkan berat badan dan mempertahankannya.</p>
-                  <h2>Tujuan Diet Mayo</h2>
-                  <p>Tujuan dari diet mayo adalah untuk membantu menurunkan berat badan berlebih, dan menemukan cara makan yang lebih sehat. Tak hanya untuk saat ini, tapi juga untuk dipertahankan seumur hidup.</p>
-                  <p>Diet ini didasarkan pada ilmu perubahan perilaku, yang akan membantu menemukan motivasi batin, untuk menurunkan berat badan. Ini juga dapat membantu menetapkan tujuan yang dapat dicapai, dan belajar menangani kemunduran.</p>
-                  <h2>Manfaat Diet Mayo</h2>
-                  <p>Manfaat terbesar dari diet mayo adalah tentang membuat perubahan perilaku sehat, alih-alih menghitung kalori atau zat gizi makro. Salah satu alasan diet tidak berhasil adalah begitu orang berhenti membatasi makanan tertentu dan melanjutkan perilaku pra-diet, berat badan akan naik kembali. Untuk itu, diet ini berfokus untuk mempertahankan perubahan perilaku untuk kesehatan</p>
+                <div className="kiri"> 
+                {articles.map(article => (
+                  <div >
+                    <h2>{article.title}</h2>
+                    <div dangerouslySetInnerHTML={{__html: article.content}}></div>
+                  </div>
+                ))}
                 </div>
               </div>
             </div>
