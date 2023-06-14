@@ -8,6 +8,7 @@ import LayananPage from "./pages/LayananPage";
 // import ArtikelPage from "./pages/ArtikelPage";
 import FaqPages from "./pages/FaqPages";
 import AboutPage from "./pages/AboutPage";
+import NotFound from "./pages/NotFound";
 
 import RegistComponent from "./components/RegistComponent";
 import LoginComponent from "./components/LoginComponent";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/about" Component={AboutPage} />
         <Route path="/login" Component={LoginComponent} />
         <Route path="/register" Component={RegistComponent} />
+        <Route path="*" Component={NotFound} />
       </Routes>
 
       <ToastContainer
