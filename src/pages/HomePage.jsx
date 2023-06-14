@@ -1,58 +1,55 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { dataSwiper, semuaLayanan } from "../data/index";
+import { Container, Row, Col } from "react-bootstrap";
+
+// import required modules
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 
-import HeroImage from "../assets/img/main-pic.png";
-
-// Component
-import MainNavbar from "../components/MainNavbar";
-import FaqComponent from "../components/FaqComponent";
+import HomeNavbar from "../components/HomeNavbar";
 import Footer from "../components/Footer";
 
-// Import Swiper styles
+import HeroImage from "../assets/img/main-pic.png";
+import { dataSwiper } from "../data/index";
+
+// Import styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-// import required modules
-import { Pagination } from "swiper";
-
-const MainPage = () => {
+const HomePage = () => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
 
+  //Auth Login
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    // Jika token ada, redirect ke halaman home
-    if (token) {
-      navigate("/home");
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
     }
-  }, [navigate]);
+  }, []);
+
+  //Display Name
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) {
+      setName(storedName);
+    }
+  }, []);
 
   return (
     <div className="homepage">
-      <MainNavbar />
-
+      <HomeNavbar />
       {/* Hero Section  */}
       <header className="w-100 min-vh-100 d-flex align-items-center overflow-hidden">
         <Container>
           <Row className="header-box d-flex align-items-center pt-lg-5">
             <Col lg="6">
               <h1 className="mb-2 animate__animated animate__fadeInUp animate__delay-1s">
-                Diet <span>Sehat,</span> <br /> Gizi Seimbang
+                Welcome <span>{name}</span>, <br /> di Healthy Care
               </h1>
               <p className="mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                Diet sesuai pola makan untuk memenuhi angka kebutuhan gizi dan
-                dapatkan tubuh ideal mu. Pilih makanan sehatmu dan control
-                diet-mu sekarang dengan Healthy Care. Solusi Cerdas Diet Gizi
-                seimbang!
+                Control diet dan gizi seimbangmu sekarang dengan Healthy Care.
+                Solusi Cerdas Diet Gizi seimbang!
               </p>
-              <button
-                className="btn btn-success btn-lg rounded-2 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s"
-                onClick={() => navigate("/register")}
-              >
-                Mulai Sekarang!
-              </button>
             </Col>
             <Col lg="6" className="pt-lg-0 pt-5">
               <img
@@ -64,40 +61,6 @@ const MainPage = () => {
           </Row>
         </Container>
       </header>
-
-      {/* Layanan Section  */}
-      <div className="kelas w-100 min-vh-100">
-        <Container>
-          <Row>
-            <Col>
-              <h1 className="text-center fw-bold">Layanan Kami</h1>
-              <p className="text-center">
-                Untuk membantu diet gizi seimbang anda.
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            {semuaLayanan.map((layanan) => {
-              return (
-                <Col
-                  key={layanan.id}
-                  className="shadow rounded"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay={layanan.delay}
-                >
-                  <img
-                    src={layanan.image}
-                    alt="unsplash.com"
-                    className="w-100 mb-5 rounded-4"
-                  />
-                  <h5 className="mb-5 px-3">{layanan.title}</h5>
-                </Col>
-              );
-            })}
-          </Row>
-        </Container>
-      </div>
 
       {/* Testimoni Section  */}
       <div className="testimonial py-5">
@@ -153,12 +116,9 @@ const MainPage = () => {
           </Row>
         </Container>
       </div>
-
-      {/* Section FaQ  */}
-      <FaqComponent />
       <Footer />
     </div>
   );
 };
 
-export default MainPage;
+export default HomePage;

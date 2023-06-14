@@ -1,11 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiUser, BiKey, BiRightArrowAlt, BiMailSend } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "../css/login.css";
 import img from "../assets/img/reg-cover.jpg";
 
 const RegistComponent = () => {
+  const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleRegist = () => {
+    axios
+      .post("https://api-healthycare-dev.up.railway.app/users/register", {
+        name: name,
+        email: email,
+        password: password,
+      })
+      .then((result) => {
+        console.log(result.data);
+        toast.success(result.data.message);
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.response.data.message);
+        console.log(error.data);
+      });
+  };
+
   return (
     <div className="registerPage flex">
       <div className="container flex">
@@ -29,7 +69,23 @@ const RegistComponent = () => {
             <h3 className="h3">Lets Us Know You!</h3>
           </div>
 
-          <form action="" className="form grid">
+          <div className="form grid">
+            <div className="inputDiv">
+              <label htmlFor="name" className="label">
+                Nama
+              </label>
+              <div className="input flex">
+                <BiUser className="icon" />
+                <input
+                  className="inputBox"
+                  type="text"
+                  value={name}
+                  placeholder="Masukan Nama"
+                  onChange={handleName}
+                />
+              </div>
+            </div>
+
             <div className="inputDiv">
               <label htmlFor="email" className="label">
                 Email
@@ -39,29 +95,9 @@ const RegistComponent = () => {
                 <input
                   className="inputBox"
                   type="email"
-                  id="email"
-                  placeholder="Enter Email"
-                  onChange={(event) => {
-                    setEmail(event.target.value);
-                  }}
-                />
-              </div>
-            </div>
-
-            <div className="inputDiv">
-              <label htmlFor="username" className="label">
-                Username
-              </label>
-              <div className="input flex">
-                <BiUser className="icon" />
-                <input
-                  className="inputBox"
-                  type="text"
-                  id="username"
-                  placeholder="Enter Username"
-                  onChange={(event) => {
-                    setUserName(event.target.value);
-                  }}
+                  value={email}
+                  placeholder="Masukan Email"
+                  onChange={handleEmail}
                 />
               </div>
             </div>
@@ -75,20 +111,18 @@ const RegistComponent = () => {
                 <input
                   className="inputBox"
                   type="password"
-                  id="password"
-                  placeholder="Enter Password"
-                  onChange={(event) => {
-                    setPassword(event.target.value);
-                  }}
+                  value={password}
+                  placeholder="Masukan Password"
+                  onChange={handlePassword}
                 />
               </div>
               <br />
-              <button type="submit" className="btn flex">
+              <button className="btn flex" onClick={handleRegist}>
                 <span>Register</span>
                 <BiRightArrowAlt className="icon" />
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

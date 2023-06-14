@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 
 import Logo from "../assets/img/logo.png";
-import { navLinks } from "../data/index";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React from "react";
 
 const HeaderNavbar = () => {
@@ -37,24 +36,7 @@ const HeaderNavbar = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto text-center">
-              {/* {navLinks.map((link) => {
-                return (
-                  <div className="nav-link" key={link.id}>
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : ""
-                      }
-                      end
-                    >
-                      {link.text}
-                    </NavLink>
-                  </div>
-                );
-              })} */}
-            </Nav>
-
+            <Nav className="mx-auto text-center"></Nav>
             <div className="text-center">
               <button
                 className="btn btn-outline-success rounded-1"

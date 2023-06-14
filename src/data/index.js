@@ -6,27 +6,44 @@ import People1 from "../assets/img/testimonial/people-1.jpg";
 import People2 from "../assets/img/testimonial/people-2.jpg";
 import People3 from "../assets/img/testimonial/people-3.jpg";
 
+import Laila from "../assets/img/Laila.jpeg"
+import Arisandi from "../assets/img/Arisandi.jpeg"
+import Vian from "../assets/img/Vian.jpeg"
+import Dhika from "../assets/img/Dhika.jpeg"
+import Rahmadi from "../assets/img/Rahmadi.jpeg"
+
 export const navLinks = [{
         id: 1,
-        path: "",
-        text: "Home",
+        path: "/home",
+        text: "Beranda",
     },
     {
         id: 2,
-        path: "layanan",
+        path: "/layanan",
         text: "Layanan",
     },
     {
         id: 3,
-        path: "artikel",
+        path: "/artikel",
         text: "Artikel",
     },
+    {
+        id: 4,
+        path: "/faq",
+        text: "FAQ",
+    },
+    {
+        id: 5,
+        path: "/about",
+        text: "Tentang Kami",
+    }
 ];
 
 export const semuaLayanan = [{
         id: 1,
         image: LayananImage1,
         title: "Perhitungan Index Massa Tubuh",
+        path: "/layanan/bmi",
         try: "Coba Sekarang",
         delay: "1300",
     },
@@ -34,6 +51,7 @@ export const semuaLayanan = [{
         id: 2,
         image: LayananImage2,
         title: "Rekomendasi Diet Gizi Seimbang",
+        path: "/layanan/diet",
         try: "Coba Sekarang",
         delay: "1600",
     },
@@ -41,6 +59,7 @@ export const semuaLayanan = [{
         id: 3,
         image: LayananImage3,
         title: "Perhitungan Kebutuhan Kalori Harian",
+        path: "/layanan/kalori",
         try: "Coba Sekarang",
         delay: "1900",
     },
@@ -50,30 +69,36 @@ export const dataSwiper = [{
         id: 1,
         desc: "Aplikasi rekomendasi diet gizi seimbang sangat membantu saya dalam mencapai tujuan kesehatan saya. Dengan fitur-fitur yang informatif dan mudah digunakan, saya dapat memilih makanan yang sehat dan memenuhi kebutuhan gizi harian saya.",
         image: People1,
-        name: "People 1",
+        name: "Nurul Mariana",
         skill: "Masyarakat Umum",
     },
     {
         id: 2,
         desc: "Saya telah menggunakan berbagai aplikasi diet sebelumnya, tetapi aplikasi rekomendasi diet gizi seimbang adalah yang terbaik. Dengan saran yang disesuaikan dengan preferensi dan kondisi kesehatan saya, saya merasa lebih energik dan mencapai berat badan yang sehat.",
         image: People2,
-        name: "People 2",
+        name: "Alex Bhizer",
         skill: "Karyawan Swasta",
     },
     {
         id: 3,
         desc: "Aplikasi rekomendasi diet gizi seimbang benar-benar mengubah pola makan saya. Saya sekarang lebih sadar akan nutrisi yang masuk ke tubuh saya dan mampu menjaga keseimbangan makanan sehari-hari. Hasilnya, saya merasa lebih sehat dan bersemangat.",
         image: People3,
-        name: "People 3",
+        name: "Gunawan   Cahya",
         skill: "Atlet",
-    },
+    }, {
+        id: 4,
+        desc: "Aplikasi ini memiliki fitur pelacakan kemajuan yang sangat berguna. Saya dapat memantau asupan kalori, nutrisi, dan berat badan saya secara teratur. Dengan demikian, saya dapat melihat perubahan positif dalam penurunan berat badan dan gaya hidup saya secara keseluruhan.",
+        image: People1,
+        name: "Titin Suritin",
+        skill: "Ibu Rumah Tangga",
+    }
 ];
 
 export const faq = [{
         id: 1,
         eventKey: 0,
         title: "Apakah ini Berlangganan?",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id estlaborum.",
+        desc: "Tidak perlu, anda hanya perlu membuat akun untuk menikmati semua fitur di website kami",
     },
     {
         id: 2,
@@ -104,5 +129,47 @@ export const faq = [{
         eventKey: 5,
         title: "Apakah harus mendaftar?",
         desc: "Untuk menggunakan fitur utama kami anda harus memiliki akun terlebih dahulu",
+    },
+];
+
+export const teamMembers = [{
+        id: 1,
+        image: Vian,
+        name: "Alvian Nugroho",
+        position: "Back-End Developer",
+        qoute: "\"Hidup adalah tentang menemukan arti dalam setiap napas yang kita hirup.\"",
+        delay: "1300",
+    },
+    {
+        id: 2,
+        image: Arisandi,
+        name: "Arisandi Satria",
+        position: "Back-End Developer",
+        qoute: "\"Kebahagiaan bukanlah tujuan, tetapi perjalanan.\"",
+        delay: "1600",
+    },
+    {
+        id: 3,
+        image: Dhika,
+        name: "Mahardhika Alif Surya",
+        position: "Front-End Developer",
+        qoute: "\"Hidup hanya sekali, tetapi jika kita melakukannya dengan benar, satu kali cukup.\"",
+        delay: "1900",
+    },
+    {
+        id: 4,
+        image: Laila,
+        name: "Laila Nur Fardah",
+        position: "Front-End Developer",
+        qoute: "\"Kegagalan adalah kesempatan untuk memulai lagi, tetapi dengan pengetahuan yang lebih baik.\"",
+        delay: "2200",
+    },
+    {
+        id: 5,
+        image: Rahmadi,
+        name: "Rahmadi Fadillah",
+        position: "Front-End Developer",
+        qoute: "\"Kesederhanaan adalah keindahan yang tak terbatas.\"",
+        delay: "2500",
     },
 ];

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiMailSend, BiKey, BiRightArrowAlt } from "react-icons/bi";
+import axios from "axios";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "../css/login.css";
 import logo from "../../public/fav-icon.png";
 import img from "../assets/img/reg-cover.jpg";
-import axios from "axios";
 
 const LoginComponent = () => {
   const navigate = useNavigate();
@@ -21,20 +24,21 @@ const LoginComponent = () => {
   };
 
   const handleApi = () => {
-    console.log({ email, password });
     axios
       .post("https://api-healthycare-dev.up.railway.app/users/login", {
         email: email,
         password: password,
       })
       .then((result) => {
-        console.log(result.data);
-        alert("success");
-        localStorage.setItem("token", result.data.token);
+        console.log(result.data.result);
+        toast.success(result.data.message);
+        localStorage.setItem("token", result.data.result.token);
+        localStorage.setItem("user_id", result.data.result.id);
+        localStorage.setItem("name", result.data.result.name);
         navigate("/home");
       })
       .catch((error) => {
-        alert("service error");
+        toast.error(error.response.data.message);
         console.log(error.data);
       });
   };

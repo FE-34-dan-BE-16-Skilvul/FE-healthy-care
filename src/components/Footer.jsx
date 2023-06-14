@@ -28,7 +28,7 @@ const Footer = () => {
           </Col>
           <Col className="d-flex flex-column col-lg-2 col mt-lg-0 mt-5">
             <h5 className="fw-bold">Menu</h5>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
             <Link to="/layanan">Layanan</Link>
             <Link to="/artikel">Artikel</Link>
           </Col>
