@@ -1,18 +1,32 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import { NavLink, useNavigate } from "react-router-dom";
+
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 import Logo from "../assets/img/logo.png";
+import Cart from "../../public/bag-icon.svg";
+
 import { navLinks } from "../data/index";
-import { NavLink, useNavigate } from "react-router-dom";
-import React from "react";
+import { toggleCart } from "../store/slices/cartSlices";
 
 const HeaderNavbar = () => {
   const [changeColor, setChangeColor] = useState(false);
   const navigate = useNavigate();
 
   const MySwal = withReactContent(Swal);
+
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  const handleOpenCart = (open) => {
+    dispatch(toggleCart(open));
+  };
+
+  const cartQuantity = cartItems.length;
 
   const handleLogout = () => {
     MySwal.fire({
@@ -74,6 +88,17 @@ const HeaderNavbar = () => {
                 );
               })}
             </Nav>
+
+            <div className="nav_menu p-3">
+              <div
+                title="Cart"
+                className="cart_icon"
+                onClick={() => handleOpenCart(true)}
+              >
+                <img src={Cart} alt="bag-icon" />
+                <span className="badge">{cartQuantity}</span>
+              </div>
+            </div>
 
             <div className="text-center">
               <button

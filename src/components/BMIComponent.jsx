@@ -11,13 +11,17 @@ const BMIComponent = () => {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
   const [result, setResult] = useState(null);
+  const [user_id, setUserId] = useState("");
 
-  //Auth Login
+  // Auth Login
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
+    } else {
+      const storedUserId = localStorage.getItem("user_id");
+      setUserId(storedUserId);
     }
-  }, []);
+  }, [navigate]);
 
   const handleWeightChange = (event) => {
     setWeight(event.target.value);
@@ -30,7 +34,9 @@ const BMIComponent = () => {
   const calculateBMI = async () => {
     const url = `https://api-healthycare-dev.up.railway.app/bmi/${user_id}`;
     const weightInKg = parseFloat(weight);
-    const heightInMeters = parseFloat(height) / 100; // Mengubah tinggi menjadi meter
+    const heightInCm = parseFloat(height);
+
+    const heightInMeters = heightInCm / 100; // Convert height to meters
 
     const bmi = weightInKg / (heightInMeters * heightInMeters);
 
