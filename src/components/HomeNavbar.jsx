@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -15,6 +15,7 @@ import { toggleCart } from "../store/slices/cartSlices";
 const HeaderNavbar = () => {
   const [changeColor, setChangeColor] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const MySwal = withReactContent(Swal);
 
@@ -89,16 +90,18 @@ const HeaderNavbar = () => {
               })}
             </Nav>
 
-            <div className="nav_menu p-3">
-              <div
-                title="Cart"
-                className="cart_icon"
-                onClick={() => handleOpenCart(true)}
-              >
-                <img src={Cart} alt="bag-icon" />
-                <span className="badge">{cartQuantity}</span>
+            {location.pathname === "/layanan/kalori" && (
+              <div className="nav_menu p-3">
+                <div
+                  title="Cart"
+                  className="cart_icon"
+                  onClick={() => handleOpenCart(true)}
+                >
+                  <img src={Cart} alt="bag-icon" />
+                  <span className="badge">{cartQuantity}</span>
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="text-center">
               <button
