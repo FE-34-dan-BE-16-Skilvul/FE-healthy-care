@@ -1,6 +1,7 @@
 # Final Group Project
 
 ## FE-34 & BE-16
+Live view: `https://healthy-care.netlify.app`
 
 ## Mobile Responsive Website
 
