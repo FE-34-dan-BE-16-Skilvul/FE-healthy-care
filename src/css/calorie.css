@@ -167,9 +167,12 @@ svg {
     transition: all 0.2s ease;
 }
 
-.product_card .btn:hover,
-.product_card .btn.added {
+.product_card .btn:hover {
     color: #389E0D;
+}
+
+.product_card .btn.added {
+    color: #fff;
 }
 
 #footer {

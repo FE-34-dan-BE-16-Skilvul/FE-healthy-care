@@ -51,7 +51,7 @@ export const semuaLayanan = [{
         id: 2,
         image: LayananImage2,
         title: "Rekomendasi Diet Gizi Seimbang",
-        path: "/layanan/diet",
+        path: "/artikel",
         try: "Coba Sekarang",
         delay: "1600",
     },

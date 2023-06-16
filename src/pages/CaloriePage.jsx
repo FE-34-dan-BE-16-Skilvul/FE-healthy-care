@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { productsData } from "../data/index";
+import { useNavigate } from "react-router-dom";
 import ProductsCard from "../components/ProductCard";
 import HomeNavbar from "../components/HomeNavbar";
-// import CalorieHeader from "../components/CalorieHeader";
 import Footer from "../components/Footer";
 
 import "../css/calorie.css";
 
 const CaloriePage = () => {
+  const navigate = useNavigate();
+  // Auth Login
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    } else {
+      const storedUserId = localStorage.getItem("user_id");
+      setUserId(storedUserId);
+    }
+  }, [navigate]);
+
   return (
     <>
       <HomeNavbar />
