@@ -17,15 +17,12 @@ const DietAtkins = () => {
   const [articles, setArticles] = useState([]);
   const articleId = 10;
 
-  // Auth Login
+  //Auth Login
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
-    } else {
-      const storedUserId = localStorage.getItem("user_id");
-      setUserId(storedUserId);
     }
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     axios

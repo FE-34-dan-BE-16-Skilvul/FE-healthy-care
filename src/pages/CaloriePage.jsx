@@ -9,15 +9,12 @@ import "../css/calorie.css";
 
 const CaloriePage = () => {
   const navigate = useNavigate();
-  // Auth Login
+  //Auth Login
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
-    } else {
-      const storedUserId = localStorage.getItem("user_id");
-      setUserId(storedUserId);
     }
-  }, [navigate]);
+  }, []);
 
   return (
     <>

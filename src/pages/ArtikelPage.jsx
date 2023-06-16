@@ -14,15 +14,12 @@ import Footer from "../components/Footer";
 
 const ArtikelPage = () => {
   const navigate = useNavigate();
-  // Auth Login
+  //Auth Login
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
-    } else {
-      const storedUserId = localStorage.getItem("user_id");
-      setUserId(storedUserId);
     }
-  }, [navigate]);
+  }, []);
 
   const [heartClicked, setHeartClicked] = useState({
     1: { id: 1, clicked: false, liked: false },

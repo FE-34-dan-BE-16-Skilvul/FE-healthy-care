@@ -17,15 +17,12 @@ const DietMediterania = () => {
   const [articles, setArticles] = useState([]);
   const articleId = 9;
 
-  // Auth Login
+  //Auth Login
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
-    } else {
-      const storedUserId = localStorage.getItem("user_id");
-      setUserId(storedUserId);
     }
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     axios
