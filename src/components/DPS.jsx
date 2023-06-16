@@ -18,6 +18,13 @@ const DPS = () => {
   const [articles, setArticles] = useState([]);
   const articleId = 4;
 
+  //Auth Login
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, []);
+
   useEffect(() => {
     axios
       .get(`https://api-healthycare-dev.up.railway.app/articles/${articleId}`)
