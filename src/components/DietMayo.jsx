@@ -41,23 +41,25 @@ const DietMayo = () => {
         </a>
           <main className="l-main row">
           <section className="home col-sm-8" id="home">
+          {articles.map(article => (
+                <div>
             <div className="home__container bd-container bd-grid">
               <div className="home__data">
-                <h1 className="home__title">Diet Mayo</h1>
-                <div className="home__img">
-                  <img src={diet2} alt="" className="mx-auto d-block" />
-                </div>
-                <div className="kiri"> 
-                {articles.map(article => (
-                  <div >
-                    <h2>{article.title}</h2>
+                
+                    <div dangerouslySetInnerHTML={{__html: article.title}} className='home__title'></div>
+                    <div className="home__img">
+                      <img src={article.image} alt="" className="mx-auto d-block" />
+                    </div>
+                    <div className="kiri">
                     <div dangerouslySetInnerHTML={{__html: article.content}}></div>
-                  </div>
-                ))}
-                </div>
+                    <span className='nulis'>penulis : {article.author}</span>
+                    </div>              
+                
               </div>
             </div>
             <DietMayoPopUp />
+            </div>
+                ))}
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>

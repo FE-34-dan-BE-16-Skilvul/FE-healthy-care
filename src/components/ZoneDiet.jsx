@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from '../assets/logo.png';
 import diet1 from '../assets/diet1.jpg';
 import diet2 from '../assets/diet2.jpeg';
@@ -9,6 +9,7 @@ import diet7 from '../assets/diet7.jpeg';
 import diet8 from '../assets/diet8.jpg';
 import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
+import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
 import ZoneDietPopUp from '../menu/ZoneDietPopUp';
@@ -17,6 +18,19 @@ import ZoneDietPopUp from '../menu/ZoneDietPopUp';
 
 const ZoneDiet = () => {
     const navigate = useNavigate();
+    const [articles, setArticles] = useState([]);
+    const articleId = 5;
+
+    useEffect(() => {
+      axios.get(`https://api-healthycare-dev.up.railway.app/articles/${articleId}`)
+      .then(response => {
+        setArticles([response.data.data]);
+        console.log(response.data.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
     return (
       <div className='diet-mayo'>
         <a href="#" className="scrolltop" id="scroll-top">
@@ -24,47 +38,25 @@ const ZoneDiet = () => {
         </a>
           <main className="l-main row">
           <section className="home col-sm-8" id="home">
+          {articles.map(article => (
+                <div>
             <div className="home__container bd-container bd-grid">
               <div className="home__data">
-                <h1 className="home__title">Zone Diet</h1>
-                <div className="home__img">
-                  <img src={diet5} alt="" className="mx-auto d-block" />
-                </div>
-                <div className="kiri">
-                <p>Zone Diet adalah metode penurunan berat badan yang dilakukan dengan menerapkan rasio dari makanan yang dikonsumsi, yaitu 40 persen karbohidrat, 30 persen protein, dan 30 persen lemak. Agar diet berhasil, karbohidrat yang dikonsumsi harus memiliki indeks glikemik yang rendah. Hal tersebut dapat membuat tubuh melepaskan gula secara perlahan ke dalam darah agar perasaan kenyang bertahan lebih lama. Protein yang dikonsumsi harus rendah lemak dan sebagian besar lemak tak jenuh tunggal.</p>
-
-                <h2>Metode Zone Diet</h2>
-                <h4>1. Metode Mata - Tangan</h4>
-                <p>Metode mata-tangan adalah cara yang paling mudah untuk menerapkan jenis diet ini. Tangan digunakan untuk menentukan ukuran porsi dan lima jari guna mengingatkan makan lima kali sehari dan jangan pernah tanpa makanan selama lima jam. Lalu, mata digunakan untuk memperkirakan porsi di piring yang harus terbagi menjadi tiga kandungan nutrisi, yaitu:</p>
-                <ul type="circle">
-                    <li>
-                        Sepertiga protein tanpa lemak yang diperkirakan ukuran dan ketebalannya sebesar telapak tangan
-                    </li>
-                    <li>
-                        Dua pertiga karbohidrat dari makanan yang dikonsumsi harus memiliki indeks glikemik yang rendah.
-                    </li>
-                    <li>Sedikit lemak tak jenuh tunggal sebagai tambahan, seperti minyak zaitun dan alpukat.</li>
-                </ul>
-
-                <h4>2. Metode Blok makanan</h4>
-                <p>Blok makanan dapat memungkinkan seseorang untuk mengatur sendiri The Zone Diet yang diterapkan dengan menghitung besaran gram dari protein, karbohidrat, hingga lemak yang dapat dikonsumsi per harinya. Cara menentukannya tergantung dari berat badan, tinggi badan, ukuran pinggang, dan pinggul.
-
-                Rata-rata pria mengonsumsi 14 blok Zone per harinya, sedangkan wanita membutuhkan 11 blok. Makanan utama, seperti sarapan, makan siang, serta makan malam berisi tiga hingga lima blok Zone. Lalu, camilan berisi satu blok. Setiap blok Zone terdiri dari protein, lemak, dan karbohidrat, yaitu:</p>
-                <ul type="circle">
-                    <li>
-                        Blok protein mengandung 7 gram protein.
-                    </li>
-                    <li>
-                        Blok karbohidrat mengandung 9 gram karbohidrat.
-                    </li>
-                    <li>Blok lemak hanya 1,5 gram.</li>
-                </ul>
-                <span>Arisandi Darmaji</span>
-                </div>
+              
+                    <div dangerouslySetInnerHTML={{__html: article.title}} className='home__title'></div>
+                    <div className="home__img">
+                      <img src={diet5} alt="" className="mx-auto d-block" />
+                    </div>
+                    <div className="kiri">
+                    <div dangerouslySetInnerHTML={{__html: article.content}}></div>
+                    <span className='nulis'>penulis : {article.author}</span>
+                    </div>              
+                
               </div>
             </div>
             <ZoneDietPopUp />
-
+            </div>
+          ))}
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>

@@ -107,7 +107,6 @@ h3 {
 
 ul {
     padding: 0;
-    list-style: none;
 }
 
 a {
@@ -758,4 +757,13 @@ img {
 
 .navbar .nav-link .active:hover {
     color: var(--navbar-color);
+}
+
+.nulis{
+    color: grey;
+    float: right;
+}
+
+ul .circle{
+    list-style-type: circle;
 }

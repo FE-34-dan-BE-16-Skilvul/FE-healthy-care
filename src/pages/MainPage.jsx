@@ -13,9 +13,8 @@
   import skilvul from '../assets/skilvul.png';
   import '../styles/App.css'
   import { BsHeartFill } from 'react-icons/bs';
-  import React, { useState } from "react";
-  import { useEffect } from "react";
-
+  import React, { useState, useEffect } from "react";
+import axios from "axios";
   // Import Swiper styles
   import "swiper/css";
   import "swiper/css/pagination";
@@ -25,7 +24,7 @@
 
 
   const HomePage = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     const [heartClicked, setHeartClicked] = useState({
       1: { id: 1, clicked: false, liked: false },
       2: { id: 2, clicked: false, liked: false },
@@ -35,8 +34,7 @@
       6: { id: 6, clicked: false, liked: false },
       7: { id: 7, clicked: false, liked: false },
     });
-    
-    
+
     const handleHeartClick = (id) => {
       setHeartClicked((prevHeartClicked) => ({
         ...prevHeartClicked,
@@ -64,6 +62,29 @@
         setHeartClicked([likedCard, ...filteredHeartClicked]);
       };
       
+
+      // const [articles, setArticles] = useState([]);
+      // const [selectedArticle, setSelectedArticle] = useState(null);
+
+      // useEffect(() => {
+      //   fetchArticle( );
+      // }, []);
+
+      // const fetchArticle = (articleId) => {
+      //   axios
+      //     .get(`https://api-healthycare-dev.up.railway.app/articles/${articleId}`)
+      //     .then((response) => {
+      //       setSelectedArticle(response.data.data[0]);
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+      //     });
+      // };
+      
+
+      // const handleClick = (articleId) => {
+      //   fetchArticle(articleId);
+      // };
 
     return (
       <div className="homepage">
@@ -100,17 +121,11 @@
                 <img src={diet3} alt="" className="accessory__img" />
                 <h3 className="accessory__title">Diet Tinggi Protein</h3>
                 <span className="accessory__preci">
+                  
                   <button className="button button-link" onClick={() => navigate("/dtp")}>Detail ...</button>
                 </span>
-                <a
-                href="javascript:void(0)"
-                className={`button accessory__button ${
-                  heartClicked[2].clicked ? "heart-clicked" : ""
-                }`}
-                onClick={() => handleHeartClick(2)}
-              >
-                <BsHeartFill />
-              </a>
+                <a href='javascript:void(0)' className={`button accessory__button ${heartClicked[2].clicked ? "heart-clicked" : ""}`}
+                onClick={() => handleHeartClick(2)}><BsHeartFill /></a>
               </div>
 
               <div className="accessory__content">
@@ -119,7 +134,7 @@
                 <span className="accessory__preci">
                   <button className="button button-link" onClick={() => navigate("/dps")}>Detail ...</button>
                 </span>
-                <a href="javascript:void(0)" className={`button accessory__button ${heartClicked[3].clicked ? "heart-clicked" : ""}`}
+                <a href='javascript:void(0)' className={`button accessory__button ${heartClicked[3].clicked ? "heart-clicked" : ""}`}
                 onClick={() => handleHeartClick(3)}><BsHeartFill /></a>
               </div>
 
@@ -129,7 +144,7 @@
                 <span className="accessory__preci">
                   <button className="button button-link" onClick={() => navigate("/zone-diet")}>Detail ...</button>
                 </span>
-                <a href="javascript:void(0)" className={`button accessory__button ${heartClicked[4].clicked ? "heart-clicked" : ""}`}
+                <a href='javascript:void(0)' className={`button accessory__button ${heartClicked[4].clicked ? "heart-clicked" : ""}`}
                 onClick={() => handleHeartClick(4)}><BsHeartFill /></a>
               </div>
 
@@ -139,7 +154,7 @@
                 <span className="accessory__preci">
                   <button className="button button-link" onClick={() => navigate("/diet-mediterania")}>Detail ...</button>
                 </span>
-                <a href="javascript:void(0)" className={`button accessory__button ${heartClicked[5].clicked ? "heart-clicked" : ""}`}
+                <a href='javascript:void(0)' className={`button accessory__button ${heartClicked[5].clicked ? "heart-clicked" : ""}`}
                 onClick={() => handleHeartClick(5)}><BsHeartFill /></a>
               </div>
 
@@ -149,7 +164,7 @@
                 <span className="accessory__preci">
                   <button className="button button-link" onClick={() => navigate("/diet-atkins")}>Detail ...</button>
                 </span>
-                <a href="javascript:void(0)" className={`button accessory__button ${heartClicked[6].clicked ? "heart-clicked" : ""}`}
+                <a href='javascript:void(0)' className={`button accessory__button ${heartClicked[6].clicked ? "heart-clicked" : ""}`}
                 onClick={() => handleHeartClick(6)}><BsHeartFill /></a>
               </div>
             </div>

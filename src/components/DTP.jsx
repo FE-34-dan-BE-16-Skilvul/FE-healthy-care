@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from '../assets/logo.png';
 import diet1 from '../assets/diet1.jpg';
 import diet2 from '../assets/diet2.jpeg';
@@ -9,12 +9,27 @@ import diet7 from '../assets/diet7.jpeg';
 import diet8 from '../assets/diet8.jpg';
 import danone from '../assets/danone.png';
 import skilvul from '../assets/skilvul.png';
+import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
 import DTPPopUp from '../menu/DTPPopUp';
 
 const DTP = () => {
     const navigate = useNavigate();
+    const [articles, setArticles] = useState([]);
+    const articleId = 3;
+
+    useEffect(() => {
+      axios.get(`https://api-healthycare-dev.up.railway.app/articles/${articleId}`)
+      .then(response => {
+        setArticles([response.data.data]);
+        console.log(response.data.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
+  
     return (
       <div className='dtp'>
         <a href="#" className="scrolltop" id="scroll-top">
@@ -23,26 +38,25 @@ const DTP = () => {
         
         <main className="l-main row">
           <section className="home col-sm-8" id="home">
+          {articles.map(article => (
+                <div>
             <div className="home__container bd-container bd-grid">
               <div className="home__data">
-                <h1 className="home__title">Diet Tinggi Protein</h1>
-                <div className="home__img">
-                  <img src={diet3} alt="" className="mx-auto d-block" />
-                </div>
-                <div className="kiri">
-                <p>Protein merupakan zat yang sangat penting yang dibutuhkan oleh tubuh. Zat gizi ini terdapat di hampir seluruh jaringan tubuh dan menjadi zat pembangun tubuh. Berbagai peran penting yang dilakukan protein dalam tubuh di antaranya adalah untuk menunjang pertumbuhan, pembentukan sistem kekebalan tubuh, hormon, enzim, dan berbagai jaringan tubuh lain. Berbagai prinsip diet banyak yang menganjurkan untuk mengonsumsi protein yang tinggi dan mengurangi karbohidrat. Selain itu, protein dianggap dapat menahan rasa lapar lebih lama. </p>
-
-                <h2>Tujuan Diet Tinggi Protein</h2>
-                <p>Terdapat dua jenis tipe diet tinggi protein, yaitu diet yang disertai dengan pembatasan karbohidrat dan digantikan dengan protein, dan diet yang menggantikan seluruh kebutuhan karbohidrat dengan protein. Diet tinggi protein biasanya menghabiskan 25 hingga 35 persen dari total kalori dalam sehari. Sedangkan yang tubuh kita butuhkan hanya sekitar 10 sampai 15 persen protein dari total kalori sehari. Menurut ketentuan Kementerian Kesehatan tentang angka kecukupan gizi, kebutuhan protein normal yang harus dipenuhi setiap harinya adalah sebesar 62 hingga 65 gram untuk laki-laki dan 56 hingga 57 untuk perempuan usia dewasa, atau sebanyak 0,8-1,0 gram per kg berat badan per hari.</p>
-                <h2>Manfaat Diet Tinggi Protein</h2>
-                <p>Tahukah kamu bahwa otak, tepatnya area yang disebut hipotalamus, berperan besar dalam mengatur berat badan kamu. Organ vital tersebut memproses berbagai jenis informasi untuk menentukan kapan kamu harus makan dan seberapa banyak jumlah makanan yang perlu kamu makan untuk merasa kenyang. Beberapa sinyal penting yang dikirim ke otak adalah perubahan hormon sebagai respons untuk mengonsumsi makanan.
-
-                Nah, meningkatkan asupan protein dapat meningkatkan kadar hormon kenyang (pengurang napsu makan) GLP-1, peptidpeptiden kadar kolesistokinin, sekaligus mengurangi kadar hormon lapar, yaitu ghrelin. Berkurangnya rasa lapar membuat kamu makan lebih sedikit kalori secara otomatis. Hal ini yang membuat diet tinggi protein dapat mengurangi berat badan.</p>   
-                <span>Penulis : Laila Nur Fardah </span> 
-                </div>
+              
+                    <div dangerouslySetInnerHTML={{__html: article.title}} className='home__title'></div>
+                    <div className="home__img">
+                      <img src={article.image} alt="" className="mx-auto d-block" />
+                    </div>
+                    <div className="kiri">
+                    <div dangerouslySetInnerHTML={{__html: article.content}}></div>
+                    <span className='nulis'>penulis : {article.author}</span>
+                    </div>              
+                
               </div>
             </div>
             <DTPPopUp />
+            </div>
+                ))}
           </section>
 
           <div className="col col-sm-3" style={{margin:'100px 0px 0px 0px'}}>
