@@ -42,7 +42,7 @@ const BMIResult = () => {
 
   return (
     <div>
-      <h1 className="mt-5 pb-1 fw-bold text-center">Hasil BMI Anda</h1>
+      <h1 className="mt-5 pb-1 fw-bold text-center">Histori BMI Anda</h1>
       <button className="mt-1 btn btn-outline-primary" onClick={handleClick}>
         Update data
       </button>
@@ -65,7 +65,7 @@ const BMIResult = () => {
             bmiData.map((data) => (
               <tr key={data.id}>
                 <td>{new Date(data.createdAt).toLocaleDateString()}</td>
-                <td>{data.result?.toFixed(1)}</td>
+                <td>{data.result?.toFixed(2)}</td>
                 <td>{data.BmiStatus?.name}</td>
                 <td>
                   <button
