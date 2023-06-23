@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, Modal } from "react-bootstrap";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
 import Logo from "../assets/img/logo.png";
 import Cart from "../../public/bag-icon.svg";
-
 import { navLinks } from "../data/index";
 import { toggleCart } from "../store/slices/cartSlices";
 
 const HeaderNavbar = () => {
   const [changeColor, setChangeColor] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [cartCalories, setCartCalories] = useState();
+
   const navigate = useNavigate();
   const location = useLocation();
 
   const MySwal = withReactContent(Swal);
 
   const { cartItems } = useSelector((state) => state.cart);
-
   const dispatch = useDispatch();
 
   const handleOpenCart = (open) => {
@@ -41,6 +40,7 @@ const HeaderNavbar = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user_id");
         localStorage.removeItem("name");
+        localStorage.removeItem("cartCalories");
         navigate("/");
       }
     });
@@ -58,7 +58,26 @@ const HeaderNavbar = () => {
     changeBackgroundColor();
 
     window.addEventListener("scroll", changeBackgroundColor);
-  });
+
+    return () => {
+      window.removeEventListener("scroll", changeBackgroundColor);
+    };
+  }, []);
+
+  useEffect(() => {
+    const storedCartCalories = localStorage.getItem("cartCalories");
+    if (storedCartCalories) {
+      setCartCalories(storedCartCalories);
+    }
+  }, []);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div>
@@ -74,21 +93,35 @@ const HeaderNavbar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto text-center">
-              {navLinks.map((link) => {
-                return (
-                  <div className="nav-link" key={link.id}>
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : ""
-                      }
-                    >
-                      {link.text}
-                    </NavLink>
-                  </div>
-                );
-              })}
+              {navLinks.map((link) => (
+                <div className="nav-link" key={link.id}>
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "active" : ""
+                    }
+                  >
+                    {link.text}
+                  </NavLink>
+                </div>
+              ))}
             </Nav>
+
+            {location.pathname === "/layanan/kalori" && (
+              <div className="nav_menu p-3">
+                <div
+                  title="History"
+                  className="cart_icon"
+                  onClick={handleShowModal}
+                >
+                  <img
+                    src="https://img.icons8.com/?size=512&id=70294&format=png"
+                    alt="bag-icon"
+                    style={{ width: "24px", height: "24px" }}
+                  />
+                </div>
+              </div>
+            )}
 
             {location.pathname === "/layanan/kalori" && (
               <div className="nav_menu p-3">
@@ -114,6 +147,18 @@ const HeaderNavbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Kalori Harian</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <span>
+            Kebutuhan Kalori Anda{" "}
+            <span className="fw-bold">{cartCalories} kal</span>
+          </span>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };
