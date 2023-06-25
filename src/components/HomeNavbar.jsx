@@ -154,7 +154,7 @@ const HeaderNavbar = () => {
         </Modal.Header>
         <Modal.Body>
           <span>
-            Kebutuhan Kalori Anda{" "}
+            Kebutuhan kalori hari ini{" "}
             <span className="fw-bold">{cartCalories}. kal</span>
           </span>
         </Modal.Body>

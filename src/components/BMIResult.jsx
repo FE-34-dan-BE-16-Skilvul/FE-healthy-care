@@ -42,7 +42,10 @@ const BMIResult = () => {
 
   return (
     <div>
-      <h1 className="mt-5 pb-1 fw-bold text-center">Histori BMI Anda</h1>
+      <h1 className="mt-5 pb-1 fw-bold text-center">Riwayat BMI</h1>
+      <p className="mt-1 pb-1 text-center">
+        Catatan Perkembangan Index Massa Tubuh Anda
+      </p>
       <button className="mt-1 btn btn-outline-primary" onClick={handleClick}>
         Update data
       </button>
@@ -50,10 +53,10 @@ const BMIResult = () => {
       <Table striped className="mt-5">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Result</th>
+            <th>Tanggal</th>
+            <th>Hasil</th>
             <th>Status</th>
-            <th>Action</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
